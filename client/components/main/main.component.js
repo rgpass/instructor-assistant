@@ -1,3 +1,5 @@
+require('./main.scss')
+
 const template = require('./main.html');
 const controller = require('./main.controller.js');
 

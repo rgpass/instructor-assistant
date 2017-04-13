@@ -1,3 +1,73 @@
 <div class="student">
-	<h1>Student view</h1>
+	<div class="row">
+		<div class="col-xs-12">
+			<p class="strong">Name:</p>
+		</div>
+		<div class="col-xs-12">
+			<input
+				type="text"
+				class="form-control input-md"
+				placeholder="John Smith"
+				ng-model="$ctrl.studentName" />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Questions</h2>
+
+			<div class="panel panel-primary">
+			  <div class="panel-heading"><span class="strong">Question:</span> Explain MVC in your own words.</div>
+			  <div class="panel-body">
+			    <textarea
+			    	rows="3"
+			    	adjustable="true"
+			    	class="form-control"
+			    	placeholder="The component definition, controller, and view."
+			    	ng-model="$ctrl.newQuestionText">
+			    </textarea>
+
+			    <button type="submit" class="btn btn-primary btn-md">
+			    	Submit Answer
+			    </button>
+			  </div>
+			</div>
+
+			<div class="panel panel-default" ng-class="{ 'panel-primary': $ctrl.isEditing }">
+			  <div class="panel-heading"><span class="strong">Question:</span> Explain MVC in your own words.</div>
+			  <div class="panel-body">
+			  	<span ng-if="!$ctrl.isEditing">
+				    <p>
+							The component definition, controller, and view.
+							<a ng-click="$ctrl.isEditing = true">Edit</a>
+						</p>
+
+				    <button type="submit" class="btn btn-default btn-md" disabled>
+				    	Submitted
+				    </button>
+			    </span>
+
+			    <span ng-if="$ctrl.isEditing">
+			    	<form>
+			    		<textarea
+			    			rows="3"
+			    			adjustable="true"
+			    			class="form-control"
+			    			placeholder="The component definition, controller, and view."
+			    			ng-if="$ctrl.isEditing"
+			    			ng-model="$ctrl.newQuestionText">
+			    		</textarea>
+
+			    		<button type="submit" class="btn btn-primary btn-md">
+			    			Save Changes
+			    		</button>
+			    		<button class="btn btn-link btn-md" ng-click="$ctrl.isEditing = false">
+			    			Cancel
+			    		</button>
+			    	</form>
+			    </span>
+			  </div>
+			</div>
+		</div>
+	</div>
 </div>

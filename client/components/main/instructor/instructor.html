@@ -1,3 +1,110 @@
 <div class="instructor">
-	<h1>Instructor view</h1>
+	<div class="row">
+		<div class="col-xs-3 text-center">
+			<a
+				ng-click="$ctrl.canSeeSecretLink = !$ctrl.canSeeSecretLink"
+				class="btn btn-primary btn-block">
+				<span ng-show="$ctrl.canSeeSecretLink">Hide Instructor Link</span>
+				<span ng-show="!$ctrl.canSeeSecretLink">Show Instructor Link</span>
+			</a>
+		</div>
+		<div class="col-xs-9">
+			<input
+				type="text"
+				disabled
+				class="form-control"
+				ng-show="$ctrl.canSeeSecretLink"
+				ng-model="$ctrl.secretLink" />
+
+			<input
+				type="text"
+				disabled
+				class="form-control"
+				ng-hide="$ctrl.canSeeSecretLink"
+				value="Hidden" />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<p class="strong">Link for students:</p>
+		</div>
+		<div class="col-xs-12">
+			<input
+				type="text"
+				disabled
+				class="form-control input-md"
+				ng-model="$ctrl.publicLink" />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>New Question</h2>
+
+			<form ng-submit="$ctrl.pushNewQuestion()">
+				<textarea
+					rows="3"
+					adjustable="true"
+					class="form-control"
+					placeholder="What is MVC?"
+					ng-model="$ctrl.newQuestionText">
+				</textarea>
+
+				<button type="submit" class="btn btn-primary">Push New Question</button>
+			</form>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Questions</h2>
+
+			<div class="well well-white">
+				<h3><span class="strong">Question:</span> <a>Explain MVC in your own words</a></h3>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="col-xs-3">Student</th>
+							<th class="col-xs-9">Answer</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Jane</td>
+							<td>MVC: Model, View, Controller. The model holds the business logic, the controller is like a phone operator, and the view is what we see.</td>
+						</tr>
+						<tr>
+							<td>Richard Gerald Pass</td>
+							<td>MVC: Model, View, Controller. I’m not sure what each part does, though.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="well well-white">
+				<h3><span class="strong">Question:</span> <a>What are the three main files that make up an Angular component?</a></h3>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="col-xs-3">Student</th>
+							<th class="col-xs-9">Answer</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Jane</td>
+							<td>MVC: Model, View, Controller. The model holds the business logic, the controller is like a phone operator, and the view is what we see.</td>
+						</tr>
+						<tr>
+							<td>Richard Gerald Pass</td>
+							<td>MVC: Model, View, Controller. I’m not sure what each part does, though.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
