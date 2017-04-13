@@ -1,3 +1,5 @@
+require('./about.scss')
+
 const template = require('./about.html');
 
 const component = {

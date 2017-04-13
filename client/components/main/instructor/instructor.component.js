@@ -1,3 +1,5 @@
+require('./instructor.scss')
+
 const controller = require('./instructor.controller.js')
 const template = require('./instructor.html')
 

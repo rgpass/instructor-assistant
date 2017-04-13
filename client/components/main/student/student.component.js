@@ -1,3 +1,5 @@
+require('./student.scss')
+
 const controller = require('./student.controller.js')
 const template = require('./student.html')
 

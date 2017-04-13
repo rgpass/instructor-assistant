@@ -1,0 +1,22 @@
+.instructor {
+	.strong {
+		font-weight: bold;
+	}
+
+	.row {
+		margin-top: 50px;
+	}
+
+	.row:first-of-type {
+		margin-top: 0px;
+	}
+
+	h2 {
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+
+	textarea {
+		margin-bottom: 10px;
+	}
+}
