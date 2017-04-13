@@ -2,6 +2,7 @@ require('angular')
 
 require('./bootstrap.scss')
 require('./bootstrap.overrides.scss')
+require('./app.scss')
 require('angular-ui-bootstrap')
 
 require('./init.firebase.js')
