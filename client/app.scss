@@ -5,3 +5,7 @@ a {
 .strong {
 	font-weight: bold;
 }
+
+.form-control[disabled] {
+	cursor: default;
+}
