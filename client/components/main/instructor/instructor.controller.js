@@ -1,5 +1,5 @@
-InstructorController.$inject = ['$state', 'FirebaseService', '$firebaseArray', '$firebaseObject']
-function InstructorController($state, FirebaseService, $firebaseArray, $firebaseObject) {
+InstructorController.$inject = ['$state', 'FirebaseService', '$firebaseArray']
+function InstructorController($state, FirebaseService, $firebaseArray) {
 	const vm = this
 
 	const { dayId } = $state.params
