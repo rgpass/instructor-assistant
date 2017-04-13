@@ -1,7 +1,5 @@
 // TODOs
-// Get SCSS to come through
 // Set up sourcemaps
-
 
 const glob = require('glob');
 module.exports = {
@@ -23,14 +21,10 @@ module.exports = {
 				test: /\.html$/,
 				loader: 'raw'
 			},
-			// {
-			// 	test: /\.scss$/,
-			// 	loader: 'style-loader!css-loader!sass-loader'
-			// },
-			// {
-			// 	test: /.css$/,
-			// 	loader: 'style-loader!css-loader'
-			// }
+			{
+				test: /\.scss$/,
+				loader: 'style-loader!css-loader!sass-loader'
+			}
 		]
 	}
 }

@@ -21,7 +21,13 @@ InstructorAssistant is a tool to empower instructors, both primary and secondary
 
 ## Special Notes
 
-Webpack dependencies
+Webpack dependencies found in `package.json`
 
-* `babel-core`
-* `babel-loader`
+* JavaScript
+	* `babel-core`
+	* `babel-loader`
+* SCSS
+	* `style-loader`
+	* `css-loader`
+	* `scss-loader`
+	* `node-sass`
