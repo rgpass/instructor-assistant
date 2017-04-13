@@ -3,10 +3,10 @@
 
 	<div class="presenter-check">
 		Is presenter?
-		<span ng-show="$ctrl.hasSecretCode">yes</span>
-		<span ng-hide="$ctrl.hasSecretCode">no</span>
+		<span ng-show="$ctrl.secretCode">yes</span>
+		<span ng-hide="$ctrl.secretCode">no</span>
 	</div>
 
-	<instructor ng-if="$ctrl.hasSecretCode"></instructor>
-	<student ng-if="!$ctrl.hasSecretCode"></student>
+	<instructor ng-if="$ctrl.secretCode"></instructor>
+	<student ng-if="!$ctrl.secretCode"></student>
 </div>
