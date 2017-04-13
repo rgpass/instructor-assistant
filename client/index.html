@@ -5,13 +5,12 @@
 	<body ng-app="ia">
 		<script src="bundle.js"></script>
 
-		<nav>
-			<ul>
-				<li><a ui-sref="about">InstructorAssistant</a></li>
-				<li><a ui-sref="app">New +</a></li>
-			</ul>
-		</nav>
+		<navbar></navbar>
 
-		<ui-view></ui-view>
+		<div class="container">
+			<div class="row">
+				<ui-view></ui-view>
+			</div>
+		</div>
 	</body>
 </html>

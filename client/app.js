@@ -1,4 +1,5 @@
 require('./bootstrap.scss')
+require('./bootstrap.overrides.scss')
 
 require('angular')
 require('./init.firebase.js')
