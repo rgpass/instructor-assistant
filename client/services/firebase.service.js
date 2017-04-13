@@ -5,6 +5,7 @@ function FirebaseService() {
 	return {
 		createDay,
 		getDay,
+		questionsForDay,
 	}
 
 	function createDay() {
@@ -20,7 +21,11 @@ function FirebaseService() {
 		return firebase.database().ref(`days/${dayId}`);
 	}
 
-	
+	function questionsForDay(dayId) {
+		return firebase.database().ref(`days/${dayId}/questions`);
+	}
+
+	/////
 
 	function _generateRandomKey() {
 		return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 8)

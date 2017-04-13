@@ -1,11 +1,30 @@
-InstructorController.$inject = ['$state']
-function InstructorController($state) {
+InstructorController.$inject = ['$state', 'FirebaseService', '$firebaseArray', '$firebaseObject']
+function InstructorController($state, FirebaseService, $firebaseArray, $firebaseObject) {
 	const vm = this
+
+	const { dayId } = $state.params
+	const questions = $firebaseArray(FirebaseService.questionsForDay(dayId))
 	const secretCode = localStorage.getItem($state.params.dayId)
 
+
 	vm.canSeeSecretLink = false
+	vm.newQuestionText = ''
 	vm.publicLink = location.href
+	vm.pushNewQuestion = pushNewQuestion
+	vm.questions = []
 	vm.secretLink = `${location.href}/${secretCode}`
+
+
+	activate()
+
+	function activate() {
+		vm.questions = questions
+	}
+
+	function pushNewQuestion() {
+		questions.$add({ content: vm.newQuestionText, answers: [] })
+		vm.newQuestionText = ''
+	}
 }
 
 module.exports = InstructorController;
