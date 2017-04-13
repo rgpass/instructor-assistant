@@ -1,0 +1,12 @@
+<div class="main">
+	<h1>Main</h1>
+
+	<div class="presenter-check">
+		Is presenter?
+		<span ng-show="$ctrl.secretCode">yes</span>
+		<span ng-hide="$ctrl.secretCode">no</span>
+	</div>
+
+	<instructor ng-if="$ctrl.secretCode"></instructor>
+	<student ng-if="!$ctrl.secretCode"></student>
+</div>
