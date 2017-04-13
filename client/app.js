@@ -1,3 +1,5 @@
+require('./bootstrap.scss')
+
 require('angular')
 require('./init.firebase.js')
 require('angular-ui-router')
