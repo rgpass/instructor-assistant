@@ -9,19 +9,21 @@
     "postinstall:bundlejs": "webpack",
     "start": "node server.js",
     "start:dev:server": "nodemon server.js",
-    "start:dev:client": "cp ./client/index.html ./dist/index.html && webpack --watch"
+    "start:dev:client": "npm run postinstall:indexhtml && webpack --watch"
   },
   "author": "Gerry Pass",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
+    "css-loader": "^0.28.0",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "glob": "^7.1.1",
     "morgan": "^1.8.1",
     "path": "^0.12.7",
     "serve-favicon": "^2.4.2",
+    "style-loader": "^0.16.1",
     "webpack": "^2.3.3"
   },
   "devDependencies": {
