@@ -1,2 +1,2 @@
 require('./exported.example.js')();
-require('./example.css');
+require('./test.scss');
