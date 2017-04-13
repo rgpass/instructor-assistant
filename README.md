@@ -31,3 +31,5 @@ Webpack dependencies found in `package.json`
 	* `css-loader`
 	* `scss-loader`
 	* `node-sass`
+* HTML
+	* `raw-loader`
