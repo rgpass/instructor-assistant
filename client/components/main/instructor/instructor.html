@@ -51,7 +51,12 @@
 					ng-model="$ctrl.newQuestionText">
 				</textarea>
 
-				<button type="submit" class="btn btn-primary">Push New Question</button>
+				<button
+					type="submit"
+					class="btn btn-primary"
+					ng-disabled="!$ctrl.newQuestionText">
+					Push New Question
+				</button>
 			</form>
 		</div>
 	</div>
