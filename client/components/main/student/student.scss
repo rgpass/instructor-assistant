@@ -1,2 +1,6 @@
 .student {
+	.has-error {
+		border-color: red;
+		box-shadow: inset 0 2px 0 rgba(255, 0, 0, 0.5)
+	}
 }

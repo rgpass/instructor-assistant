@@ -6,6 +6,6 @@ a {
 	font-weight: bold;
 }
 
-.form-control[disabled] {
+.form-control[disabled], .btn[disabled] {
 	cursor: default;
 }

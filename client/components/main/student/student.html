@@ -7,6 +7,7 @@
 			<input
 				type="text"
 				class="form-control input-md"
+				ng-class="{ 'has-error': !$ctrl.studentName }"
 				placeholder="John Smith"
 				ng-model="$ctrl.studentName" />
 		</div>
@@ -16,24 +17,50 @@
 		<div class="col-xs-12">
 			<h2>Questions</h2>
 
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><span class="strong">Question:</span> Explain MVC in your own words.</div>
-			  <div class="panel-body">
-			    <textarea
-			    	rows="3"
-			    	adjustable="true"
-			    	class="form-control"
-			    	placeholder="The component definition, controller, and view."
-			    	ng-model="$ctrl.newQuestionText">
-			    </textarea>
-
-			    <button type="submit" class="btn btn-primary btn-md">
-			    	Submit Answer
-			    </button>
-			  </div>
+			<div ng-if="!$ctrl.questions.length">
+				No questions have been pushed yet.
 			</div>
 
-			<div class="panel panel-default" ng-class="{ 'panel-primary': $ctrl.isEditing }">
+			<div
+				ng-repeat="question in $ctrl.questions"
+				class="panel"
+				ng-class="{
+					'panel-primary': !question.answers[$ctrl.studentKey],
+					'panel-default': question.answers[$ctrl.studentKey],
+				}">
+				<div class="panel-heading">
+					<span class="strong">Question:</span> {{ question.content }}
+				</div>
+
+				<div class="panel-body">
+					<form ng-submit="$ctrl.submitAnswer(question)" ng-if="!question.answers[$ctrl.studentKey]">
+						<textarea
+							rows="3"
+							adjustable="true"
+							class="form-control"
+							ng-model="question.answer">
+						</textarea>
+
+						<button
+							type="submit"
+							class="btn btn-md"
+							ng-class="{
+								'btn-primary': !question.answers[$ctrl.studentKey],
+								'btn-default': question.answers[$ctrl.studentKey],
+							}"
+							ng-disabled="question.submitted || !$ctrl.studentName">
+							<span ng-if="!question.submitted">Submit Answer</span>
+							<span ng-if="question.submitted">Submitted</span>
+						</button>
+					</form>
+
+					<p ng-if="question.answers[$ctrl.studentKey]">
+						{{ question.answers[$ctrl.studentKey].content }}
+					</p>
+				</div>
+			</div>
+
+<!-- 			<div class="panel panel-default" ng-class="{ 'panel-primary': $ctrl.isEditing }">
 			  <div class="panel-heading"><span class="strong">Question:</span> Explain MVC in your own words.</div>
 			  <div class="panel-body">
 			  	<span ng-if="!$ctrl.isEditing">
@@ -67,7 +94,7 @@
 			    	</form>
 			    </span>
 			  </div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
