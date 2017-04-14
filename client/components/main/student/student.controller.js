@@ -9,10 +9,12 @@ function StudentController($state, FirebaseService, $firebaseArray) {
 
 	vm.isSubmitted = isSubmitted
 	vm.questions = questions
+	vm.resetName = resetName
+	vm.setName = setName
 	vm.studentKey = studentKey
 	vm.studentName = localStorage.getItem('studentName') || ''
 	vm.submitAnswer = submitAnswer
-	vm.updateName = updateName
+	vm.tempStudentName = ''
 
 	activate()
 
@@ -31,15 +33,22 @@ function StudentController($state, FirebaseService, $firebaseArray) {
 			question.answers[studentKey]
 	}
 
+	function resetName() {
+		vm.tempStudentName = vm.studentName
+		vm.studentName = ''
+		localStorage.removeItem('studentName')
+	}
+
+	function setName() {
+		vm.studentName = vm.tempStudentName
+		localStorage.setItem('studentName', vm.studentName)
+	}
+
 	function submitAnswer(question) {
 		const url = `/days/${dayId}/questions/${question.$id}/answers/${studentKey}`
 		const answerRef = FirebaseService.getRefByUrl(url)
 		const answerObj = { content: question.answer, studentName: vm.studentName }
 		answerRef.set(answerObj)
-	}
-
-	function updateName() {
-		localStorage.setItem('studentName', vm.studentName)
 	}
 }
 

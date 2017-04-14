@@ -1,16 +1,42 @@
 <div class="student">
 	<div class="row">
 		<div class="col-xs-12">
-			<p class="strong">Name:</p>
+			<p>
+				<span class="strong"> Name: </span>
+			</p>
+			<p>
+				<span ng-if="$ctrl.studentName">
+					{{ $ctrl.studentName }}
+					<a ng-click="$ctrl.resetName()">
+						Edit
+					</a>
+				</span>
+			</p>
+			<div>
+					<p> </p>
+
+				</span>
+			</div>
 		</div>
 		<div class="col-xs-12">
-			<input
-				type="text"
-				class="form-control input-md"
-				ng-class="{ 'has-error': !$ctrl.studentName }"
-				placeholder="John Smith"
-				ng-model="$ctrl.studentName"
-				ng-change="$ctrl.updateName()" />
+			<form ng-if="!$ctrl.studentName" ng-submit="$ctrl.setName()">
+				<input
+					type="text"
+					autofocus
+					placeholder="John Smith"
+					class="form-control input-md"
+					ng-focus="$ctrl.focus = true"
+					ng-blur="$ctrl.focus = false"
+					ng-class="{ 'has-error': !$ctrl.tempStudentName && !$ctrl.focus }"
+					ng-model="$ctrl.tempStudentName" />
+
+				<button
+					type="submit"
+					class="btn btn-primary"
+					ng-disabled="!$ctrl.tempStudentName">
+					Save Name
+				</button>
+			</form>
 		</div>
 	</div>
 
@@ -50,8 +76,12 @@
 								'btn-default': question.answers[$ctrl.studentKey],
 							}"
 							ng-disabled="question.submitted || !$ctrl.studentName">
-							<span ng-if="!question.submitted">Submit Answer</span>
-							<span ng-if="question.submitted">Submitted</span>
+
+							<span ng-if="!$ctrl.studentName">Set Name First</span>
+							<span ng-if="$ctrl.studentName">
+								<span ng-if="!question.submitted">Submit Answer</span>
+								<span ng-if="question.submitted">Submitted</span>
+							</span>
 						</button>
 					</form>
 
