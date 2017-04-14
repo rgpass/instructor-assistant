@@ -1,5 +1,5 @@
-InstructorController.$inject = ['$state', 'FirebaseService', '$firebaseArray']
-function InstructorController($state, FirebaseService, $firebaseArray) {
+InstructorController.$inject = ['$state', 'FirebaseService', '$firebaseArray', '$rootScope']
+function InstructorController($state, FirebaseService, $firebaseArray, $rootScope) {
 	const vm = this
 
 	const { dayId } = $state.params
@@ -9,21 +9,34 @@ function InstructorController($state, FirebaseService, $firebaseArray) {
 
 	vm.canSeeSecretLink = false
 	vm.newQuestionText = ''
-	vm.publicLink = location.href
+	vm.publicLink = ''
 	vm.pushNewQuestion = pushNewQuestion
-	vm.questions = []
-	vm.secretLink = `${location.href}/${secretCode}`
-
+	vm.questions = questions
+	vm.secretLink = ''
+	
 
 	activate()
 
 	function activate() {
-		vm.questions = questions
+		_updateLinks()
 	}
 
 	function pushNewQuestion() {
 		questions.$add({ content: vm.newQuestionText, answers: [] })
 		vm.newQuestionText = ''
+	}
+
+
+	//////////
+
+
+	// Solves a weird UI-Router issue not picking up the updated location
+	function _updateLinks() {
+		setTimeout(function setLinksAndRunDigest() {
+			vm.publicLink = location.href || 'UI Router error -- Refresh the page to see link'
+			vm.secretLink = `${location.href}/${secretCode}`
+			$rootScope.$apply()
+		}, 100)
 	}
 }
 
