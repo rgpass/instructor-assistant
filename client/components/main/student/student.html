@@ -9,7 +9,8 @@
 				class="form-control input-md"
 				ng-class="{ 'has-error': !$ctrl.studentName }"
 				placeholder="John Smith"
-				ng-model="$ctrl.studentName" />
+				ng-model="$ctrl.studentName"
+				ng-change="$ctrl.updateName()" />
 		</div>
 	</div>
 
