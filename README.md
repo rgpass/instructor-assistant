@@ -6,8 +6,8 @@ InstructorAssistant is a tool to empower instructors, both primary and secondary
 
 ## Todos
 
-* Get SCSS and Webpack working together
 * Build app
+* Build sub-components
 * Create favicon
 * Switch from `nodemon` to `node-foreman`
 
