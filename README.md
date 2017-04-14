@@ -4,12 +4,21 @@
 
 InstructorAssistant is a tool to empower instructors, both primary and secondary, to scale up one-on-one checks for understanding.
 
+
 ## Todos
 
-* Build app
+* Can edit questions after pushing
+* Tracking previous sessions
+* Ability to grade each answer
 * Build sub-components
 * Create favicon
 * Switch from `nodemon` to `node-foreman`
+* Long-term data on students
+* Pushing multiple choice questions
+* Real authentication
+* Slackbot to push out the links
+* Field to allow filtering questions
+
 
 ## Getting Started
 
@@ -18,6 +27,7 @@ InstructorAssistant is a tool to empower instructors, both primary and secondary
 * In one window, start the client with `npm run start:dev:client`
 * In another window, start the server with `npm run start:dev:server`
 * Navigate to the port that is logged when starting the server
+
 
 ## Docs for Confusing Topics
 
@@ -29,6 +39,7 @@ The process done when creating a new day is:
 1. Forward to the normal URL
 
 There is a special state called `setInstructorPermissions`. This is because instructors will need to share the special instructor link for other instructors to see the answers.
+
 
 ## Special Notes
 
