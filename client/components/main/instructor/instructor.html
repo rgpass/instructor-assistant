@@ -60,8 +60,8 @@
 		<div class="col-xs-12">
 			<h2>Questions</h2>
 
-			<div class="well well-white">
-				<h3><span class="strong">Question:</span> <a>Explain MVC in your own words</a></h3>
+			<div class="well well-white" ng-repeat="question in $ctrl.questions">
+				<h3><span class="strong">Question:</span> {{ question.content }}</h3>
 
 				<table class="table table-striped">
 					<thead>
@@ -71,39 +71,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Jane</td>
-							<td>MVC: Model, View, Controller. The model holds the business logic, the controller is like a phone operator, and the view is what we see.</td>
-						</tr>
-						<tr>
-							<td>Richard Gerald Pass</td>
-							<td>MVC: Model, View, Controller. I’m not sure what each part does, though.</td>
+						<tr ng-repeat="answer in question.answers">
+							<td>{{ answer.studentName }}</td>
+							<td>{{ answer.content }}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 
-			<div class="well well-white">
-				<h3><span class="strong">Question:</span> <a>What are the three main files that make up an Angular component?</a></h3>
-
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th class="col-xs-3">Student</th>
-							<th class="col-xs-9">Answer</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Jane</td>
-							<td>MVC: Model, View, Controller. The model holds the business logic, the controller is like a phone operator, and the view is what we see.</td>
-						</tr>
-						<tr>
-							<td>Richard Gerald Pass</td>
-							<td>MVC: Model, View, Controller. I’m not sure what each part does, though.</td>
-						</tr>
-					</tbody>
-				</table>
+			<div ng-if="!$ctrl.questions.length">
+				You haven't pushed any questions yet.
 			</div>
 		</div>
 	</div>
