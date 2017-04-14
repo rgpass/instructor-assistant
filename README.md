@@ -24,7 +24,7 @@ InstructorAssistant is a tool to empower instructors, both primary and secondary
 The process done when creating a new day is:
 
 1. Create the day in Firebase
-1. orward to `setInstructorPermissions` state
+1. Forward to `setInstructorPermissions` state
 1. If the special link is valid, enable instructor view for that `dayId`
 1. Forward to the normal URL
 
