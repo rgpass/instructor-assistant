@@ -1,5 +1,22 @@
 <div class="instructor">
 	<div class="row">
+		<div class="col-xs-12">
+			<p class="strong">Link for students:</p>
+		</div>
+		<div class="col-xs-12">
+			<input
+				type="text"
+				disabled
+				class="form-control input-md"
+				ng-model="$ctrl.publicLink" />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Settings</h2>
+		</div>
+
 		<div class="col-xs-3 text-center">
 			<a
 				ng-click="$ctrl.canSeeSecretLink = !$ctrl.canSeeSecretLink"
@@ -23,18 +40,11 @@
 				ng-hide="$ctrl.canSeeSecretLink"
 				value="Hidden" />
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-xs-12">
-			<p class="strong">Link for students:</p>
-		</div>
-		<div class="col-xs-12">
-			<input
-				type="text"
-				disabled
-				class="form-control input-md"
-				ng-model="$ctrl.publicLink" />
+		<div class="col-xs-12 checkbox-wrapper">
+			<label>
+				<input type="checkbox" ng-model="$ctrl.isAnonymous"> Hide Student Names
+			</label>
 		</div>
 	</div>
 
@@ -77,7 +87,14 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="answer in question.answers">
-							<td>{{ answer.studentName }}</td>
+							<td>
+								<span ng-if="!$ctrl.isAnonymous">
+									{{ answer.studentName }}
+								</span>
+								<span ng-if="$ctrl.isAnonymous">
+									(anonymous)
+								</span>
+							</td>
 							<td>{{ answer.content }}</td>
 						</tr>
 					</tbody>
