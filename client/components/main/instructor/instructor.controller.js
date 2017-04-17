@@ -8,6 +8,7 @@ function InstructorController($state, FirebaseService, $firebaseArray, $rootScop
 
 
 	vm.canSeeSecretLink = false
+	vm.isAnonymous = true
 	vm.newQuestionText = ''
 	vm.publicLink = ''
 	vm.pushNewQuestion = pushNewQuestion
